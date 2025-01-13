@@ -1,0 +1,100 @@
+body {
+  background-image: url('SBB.jpg'); /* Idea with background: Kevin Haltiner. Shows a purple background image. */
+  background-size: cover; /* Adjusts the image proportionally to the window size */
+  background-repeat: no-repeat; /* Prevents the image from being repeated */
+  background-position: center; /* Centres the image in the window */
+  margin: 0; /* Removes standard distance around the body */
+  height: 100vh; /* Ensures that the body has the full window height */
+}
+.clock {
+  width: 26.5rem; /* shows the size of the watch */
+  height: 26rem; /* shows the size of the watch */
+  border: 8px solid #646464;
+  border-radius: 50%;
+  margin: 0;
+  position: absolute;
+  top: 44%;
+  left: 72.25%;
+  transform: translate(-50%, -50%); /* Centers the clock */
+  padding: 0.2rem;
+  background:url(images.png); /* White background for the clock face */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.outer-clock-face { /* shows outer ring */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.outer-clock-face::after {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.inner-clock-face { /* shows inner circle */
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  z-index: 1;
+}
+.hand {
+  width: 50%;
+  right: 50%;
+  height: 8px;
+  background: #ffffff; /* Darker hour hand */
+  position: absolute;
+  top: 50%;
+  border-radius: 0px;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+.hand.hour-hand {
+  width: 35%; /* length of the pointer */
+  z-index: 3;
+  background: #000000; /* Dark color for the hour hand */
+  height: 15px; /* Width of the pointer */
+}
+.hand.min-hand {
+  height: 14px; /* Width of the pointer */
+  z-index: 10;
+  width: 55%; /* length of the pointer */
+  background: #000000; /* Dark color for the minute hand */
+  border-radius: 0;
+}
+.hand.second-hand {
+  height: 3px; /* Width of the pointer */
+  background: #fa0a0a; /* Orange for the second hand */
+  width: 50%; /* length of the pointer */
+  border-radius: 0;
+  z-index: 11;
+}
+.hand.second-hand::after {
+  content: '';
+  position: absolute;
+  right: 165px; /* Positionierung am Ende des Zeigers */
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 25px;
+  height: 25px;
+  background: #fa0a0a;
+  border-radius: 50%; /* Erzeugt die Kugel */
+}
+.inner-clock-face::before { /*small circle for pointer */
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 18px;
+  margin-left: -9px;
+  margin-top: -6px;
+  background: #010007; /* Dark center */
+  z-index: 12;
+}
