@@ -1,17 +1,31 @@
-    const secondHand = document.querySelector('.second-hand');
-    const minsHand = document.querySelector('.min-hand');
-    const hourHand = document.querySelector('.hour-hand');
-    function setDate() {
-    const now = new Date();
-    const seconds = now.getSeconds();
-    const secondsDegrees = ((seconds / 60) * 360) + 90;
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-    const mins = now.getMinutes();
-    const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90;
-    minsHand.style.transform = `rotate(${minsDegrees}deg)`;
-    const hour = now.getHours();
-    const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-    }
-    setInterval(setDate, 1000);
-    setDate();
+// Select the second hand element from the DOM
+const secondHand = document.querySelector('.second-hand');
+
+// Select the minute hand element from the DOM
+const minsHand = document.querySelector('.min-hand');
+
+// Select the hour hand element from the DOM
+const hourHand = document.querySelector('.hour-hand');
+
+// Function to update the clock hands based on the current time
+function setDate() {
+    const now = new Date(); // Get the current date and time
+
+    const seconds = now.getSeconds(); // Get the current seconds
+    const secondsDegrees = ((seconds / 60) * 360) + 90; // Calculate rotation for the second hand
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`; // Rotate the second hand
+
+    const mins = now.getMinutes(); // Get the current minutes
+    const minsDegrees = ((mins / 60) * 360) + ((seconds / 60) * 6) + 90; // Calculate rotation for the minute hand
+    minsHand.style.transform = `rotate(${minsDegrees}deg)`; // Rotate the minute hand
+
+    const hour = now.getHours(); // Get the current hour
+    const hourDegrees = ((hour / 12) * 360) + ((mins / 60) * 30) + 90; // Calculate rotation for the hour hand
+    hourHand.style.transform = `rotate(${hourDegrees}deg)`; // Rotate the hour hand
+}
+
+// Call the setDate function every second to update the clock
+setInterval(setDate, 1000);
+
+// Initial call to set the clock hands immediately
+setDate();

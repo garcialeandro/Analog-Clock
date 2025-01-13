@@ -77,13 +77,13 @@ body {
 .hand.second-hand::after {
   content: '';
   position: absolute;
-  right: 165px; /* Positionierung am Ende des Zeigers */
+  right: 165px; /* Position */
   top: 50%;
   transform: translate(50%, -50%);
   width: 25px;
   height: 25px;
   background: #fa0a0a;
-  border-radius: 50%; /* Erzeugt die Kugel */
+  border-radius: 50%; /* Creates the Circle */
 }
 .inner-clock-face::before { /*small circle for pointer */
   content: '';
